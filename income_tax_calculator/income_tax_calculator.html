@@ -1,0 +1,62 @@
+<hmtl>
+  <head>
+    <title> This application will calculate income tax</title>
+  <script type="text/javascript">
+        //create an anonymous function to make calling getElementById() easier
+      var $ = function(id) {
+        return document.getElementById(id);
+      }
+      //second anonymous function
+      var calculateTax = function() {
+        
+        var incomeInput = $("income").value;
+        var income = parseFloat(incomeInput);
+        var tax = 0;
+        //process using if else if statement
+        if(income > 7000)
+          {
+            tax = (income*0.06)+230;
+          }
+        else if( 7000>income>5250 )
+          {
+            tax = (income*0.05)+142.50;
+          }
+        else if(5250>income>3750)
+          {
+            tax = (income*0.04)+82.50;
+          }
+        else if(3750>income>2250)
+          {
+            tax = (income*0.03)+37.50;
+          }
+        else if(2250>income>750)
+          {
+            tax = (income*0.02)+7.50;
+          }
+        else
+          {
+            tax = income*0.01;
+          }
+        //output the grade
+        $("tax").value = tax;
+      }
+      
+      //handle events
+      window.onload = function() {
+        
+        $("calculate").onclick = calculateTax;
+        $("income").focus();
+      }
+    </script>
+  </head>
+  <body>
+    <h1> Calculate Income Tax </h1>
+    <label for="income"> Enter Your Annual Income: </label>
+    <input type="text" name="income" id="income"><br><br>
+    <label for="tax"> Amount of Tax due: </label>
+    <input type="text" naame="tax" id="tax" disabled><br><br>
+    <label>&nbsp</label>
+    <input type="button" id="calculate" value="Calculate Income Tax"><br>
+    
+  </body>
+  </html>
