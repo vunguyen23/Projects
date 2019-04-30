@@ -1,0 +1,62 @@
+.home {
+    background: url("../Images/4S.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px white;
+    font-size: 50px;
+}
+
+h2 {
+	text-align: center;
+	color:lightblue;
+	text-shadow: 2px 2px 4px;
+	font-size: 35px;
+}
+
+p {
+	text-align: left;
+	color:black;
+	text-shadow: 2px 2px white;
+	font-size: 30px;
+	 width: 300px;
+    height: 100px; 
+   margin-top:20px;
+   margin-bottom: 250px;
+   margin-left: 800px;
+   margin-right: 100px;
+
+}
+.fall{
+	background:url(../Images/fall.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.winter{
+	background:url(../Images/winter.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.spring{
+	background:url(../Images/spring.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.summer{
+	background:url(../Images/summer.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.p1{
+	text-align: left
+}
