@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Basic Google Map</title>
+	<script src="http://map.google.com/maps/api/js?sensor=false" 
+	type="text/javascript">
+		
+	</script>
+	<style type="text/css">
+		div#mymap {
+			width: 800px;
+			height: 800px;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function create_map() {
+			var location = {
+				center: new google.maps.LatLng(37.785562, -122.406065),
+				zoom: 15,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+
+			var sfsuMap = new google.maps.Map(document.getElementById("mymap"), location);
+		
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(37.785562, -122.406065),
+				map: sfsuMap,
+				title: "SFSU downtown campus",
+				animation: google.maps.Animation.DROP
+
+			});
+			var infoWindow = new google.maps.InfoWindow();
+			var listener = google.maps.event.addListener(marker, "click", function(){
+				infoWindow.setContent("SFSU Downtown Campus");
+				infoWindow.open(sfsuMap, marker);
+			});
+
+			var myCoffeeShopLat = [37.782585, 37.786371, 37.784562, 37.783129, 37.787084];
+			var myCoffeeShopLng = [-122.407615, -122.404978, -122.407315, -122.406882, -122.404055];
+
+			var myCoffeeShopInfo = ["Blue Bottle Coffee Co", "The Cofee Bean & Tea Leaf", "DAVIDsTEA", "Cafe Venue", "Cafe Dolci"];
+			var myCoffeeShopMarker = [];
+
+			for(var i=0; i<myCoffeeShopInfo.length; i++)
+			{
+				myCoffeeShopMarker[i] = new google.maps.Marker({
+					position: new google.maps.LatLng(myCoffeeShopLat[i], myCoffeeShopLng[i]),
+					map: sfsuMap,
+					title: myCoffeeShopInfo[i],
+					animation: google.maps.Animation.DROP
+				});
+
+				listener = google.maps.event.addListener(myCoffeeShopMarker[i],
+					"click",function(){
+						infoWindow.setContent(this.title);
+						infoWindow.open(sfsuMap, this);
+
+					});
+			}
+		}
+
+
+	</script>
+</head>
+<body onload="create_map()">
+	<div id="mymap"></div>
+
+</body>
+</html>
